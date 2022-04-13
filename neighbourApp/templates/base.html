@@ -1,0 +1,37 @@
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{title}}</title>
+    {{else}}
+    <title>sly-aWWards</title>
+    {% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@100;700&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+    {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% include "navbar.html" %}
+    {% block content %}
+    {% endblock %}
+
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    <script src=" {% static 'js/home.js' %}"></script>
+    {% endblock %}
+</body>
+</html>
