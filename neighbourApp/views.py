@@ -5,7 +5,7 @@ from django.http  import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
-from .models import Profile, Neighbourhood,Admin,Business,Post
+from .models import Profile, Neighbourhood,Business,Post
 from django.core.exceptions import ObjectDoesNotExist
 
 
@@ -23,9 +23,9 @@ def home(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    profile = Profile.objects.all()
     
-    
-    return render(request, 'profile.html')
+    return render(request, 'profile.html',{ 'profile':profile})
 
 
 @login_required(login_url='/accounts/login/')

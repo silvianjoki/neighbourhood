@@ -31,19 +31,7 @@ class Neighbourhood(models.Model):
     
 
 
-class Admin(models.Model):
-    user = models.OneToOneField(User, on_delete = models.CASCADE)
-    name= models.CharField(max_length=255)
-    
-    
-    def __str__(self):
-        return self.name
-    
-    def save_admin(self):
-        self.save()
 
-    def delete_profile(self):
-        self.delete() 
 
 
 
@@ -89,7 +77,7 @@ class Post(models.Model):
     title=models.CharField(max_length=255)
     image= models.ImageField(upload_to = 'images/', null=True)
     description=models.TextField()
-    posted_by= models.ForeignKey(User, on_delete=models.CASCADE)
+    author= models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.title

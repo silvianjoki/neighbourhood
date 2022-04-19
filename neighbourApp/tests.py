@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Profile, Neighbourhood, Business, Admin, Post
+from .models import Profile, Neighbourhood, Business, Post
 
 # Create your tests here.
 class ProfileTestCase(TestCase):
@@ -88,13 +88,13 @@ class BusinessTestCase(TestCase):
         business2 = Business.objects.all()
         self.assertEqual(len(business2),0)
         
-class AdminTestCase(TestCase):
+class PostTestCase(TestCase):
     def setUp(self):
         self.silvia = User(username = 'silvia',  email ='silvia@gmail.com', n_name='nairobi', profile_id='21882')
         self.profile = Profile(user=self.silvia, name='sivia', email='silvia@gmail.com', profile_id='21882')
         self.neighbourhood = Neighbourhood(n_name='nairobi', location='kenya', occupants='10000', admin='self.admin')
         self.business = Business(name='biashara', user='self.user', n_name='self.neighbourhood', email='silvia@gmail.com')
-        self.admin= Admin(user='administrator', name='admin', profile_pic='image3')
+        self.post= Post(title='new house', description='check this out', image='image3', author='silvia')
         
         self.silvia.save()
         self.profile.save_profile()
@@ -104,9 +104,10 @@ class AdminTestCase(TestCase):
         Profile.objects.all().delete()
         Neighbourhood.objects.all().delete()
         Business.objects.all().delete()
-        Admin.objects.all().delete()
+        Post.objects.all().delete()
         
-    def test_admin_instance(self):
-        self.assertTrue(isinstance(self.admin, Admin))
+    def test_post_instance(self):
+        self.assertTrue(isinstance(self.post, Post))
+        
         
     
