@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.http  import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from requests import post
 from .forms import PostForm, ProfileForm, BusinessForm, NeighbourhoodForm
 
 from .models import Profile, Neighbourhood,Business,Post
@@ -58,4 +59,12 @@ def add_post(request):
     
     return render(request, 'add_post.html', {'form': form })
 
-
+@login_required(login_url='/accounts/login/')
+def search(request):
+    if 'neighbourhood' in request.GET and request.GET["neighbourhood"]:
+        neighbourhood = request.GET.get('neighbourhood')
+        searchname= Post.search_by_neighbourhood(neighbourhood)
+        message = f"{neighbourhood}"
+        return render(request, 'search.html',{"message":message, "neighbourhood":searchname})
+    else:
+        return render(request, 'search.html')
