@@ -8,7 +8,8 @@ from . import views
 
 
 urlpatterns=[
-
+    re_path('^$', views.index, name = 'index'),
+    path('home/', views.home, name='home'),
     
     
     
