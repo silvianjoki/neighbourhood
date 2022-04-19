@@ -74,13 +74,17 @@ class Post(models.Model):
     image= models.ImageField(upload_to = 'images/', null=True)
     description=models.TextField()
     author= models.ForeignKey(User, on_delete=models.CASCADE)
-    date= models.DateTimeField(auto_now_add = True)
+    date= models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title
     
     def create_post(self):
         self.save()
+    
+    @classmethod
+    def search_title(cls,title):
+        return User.objects.filter(title=title)
     
     @classmethod
     def update_post(cls,id, description):
