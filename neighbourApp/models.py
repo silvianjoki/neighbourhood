@@ -1,15 +1,17 @@
+import profile
 from django.db import models
 from django.contrib.auth.models import User
 
 
 class Neighbourhood(models.Model):
+    user= models.ForeignKey(User, on_delete=models.CASCADE, default= '1', related_name='users' )
     n_name= models.CharField(max_length=255)
     location= models.CharField(max_length=255)
     occupants= models.IntegerField()
-    admin=models.ForeignKey(User, on_delete=models.CASCADE)
+    admin=models.ForeignKey(User, on_delete=models.CASCADE, related_name='admins')
 
     def __str__(self):
-        return self.user.location
+        return self.location
     
     def create_neighbourhood(self):
         return self.save()
