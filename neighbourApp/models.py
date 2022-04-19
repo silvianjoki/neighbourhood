@@ -45,10 +45,7 @@ class Admin(models.Model):
 
     def delete_profile(self):
         self.delete() 
-# name.
-# id.
-# neighborhood id foreign key
-# email address.
+
 
 
 class Profile(models.Model):
