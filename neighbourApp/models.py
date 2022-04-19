@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class neighbourhood(models.Model):
-    name= models.CharField(max_length=255)
+    n_name= models.CharField(max_length=255)
     location= models.CharField(max_length=255)
     occupants= models.IntegerField()
     admin=models.ForeignKey(User, on_delete=models.CASCADE)
@@ -51,7 +51,7 @@ class Admin(models.Model):
 class Profile(models.Model):
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
-    neighbourhood = models.ForeignKey(User, on_delete=models.CASCADE)
+    n_name = models.ForeignKey(neighbourhood, on_delete=models.CASCADE)
     profile_id = models.IntegerField()
     
     def __str__(self):
@@ -68,7 +68,7 @@ class Profile(models.Model):
 class Business(models.Model):
     name= models.CharField(max_length=255)
     user=models.ForeignKey(User, on_delete=models.CASCADE)
-    neighbourhood_id= models.ForeignKey(User, on_delete=models.CASCADE)
+    n_name= models.ForeignKey(neighbourhood, on_delete=models.CASCADE)
     email=models.CharField(max_length=255)
     
     def __str__(self):
