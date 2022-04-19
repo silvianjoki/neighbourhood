@@ -6,14 +6,14 @@ class ProfileForm(forms.ModelForm):
     model = Profile
     class  Meta:
         model = Profile
-        exclude = ['n_name']
+        exclude = ['']
         
 
 class NeighbourhoodForm(forms.ModelForm):
     model = Neighbourhood
     class  Meta:
         model = Neighbourhood
-        exclude = ['admin']
+        exclude = ['']
         
 
 class PostForm(forms.ModelForm):
@@ -27,7 +27,7 @@ class BusinessForm(forms.ModelForm):
     model = Business
     class  Meta:
         model = Business
-        exclude = [ 'user']
+        exclude = [ '']
         
         
 

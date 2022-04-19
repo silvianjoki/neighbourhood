@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
+{% load static %}
+
+
+{% block styles%}
+    {% bootstrap_css %}
+    <link rel='stylesheet' href="{% static 'css/posts.css'%}">
+{% endblock%}
+
+{% block content%}
+
+
+<div class="container-fluid" style="height:100px">
+
+    <div class="row">
+        {% if image%}
+        
+        {% else %}
+        <h2> Add your business here</h2>
+        </h2>
+        {% endif %}
+    </div>
+</div>
+
+<form  action="{%url 'neighbourhood'%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-dark btn-sm" value="Post">
+</form>
+
+{% endblock %}

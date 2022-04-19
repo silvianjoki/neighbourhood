@@ -12,6 +12,9 @@ urlpatterns=[
     path('home/', views.home, name='home'),
     path('profile/', views.profile, name='profile'),
     path('add_post/', views.add_post, name='add_post'),
+    path('add_business/', views.add_business, name='add_business'),
+    path('search/', views.search, name= 'search'),
+    path('neighbourhood/', views.neighbourhood, name = 'neighbourhood')
     
     
     

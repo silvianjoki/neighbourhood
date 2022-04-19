@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
@@ -58,6 +59,38 @@ def add_post(request):
         form = PostForm()
     
     return render(request, 'add_post.html', {'form': form })
+
+
+@login_required(login_url='/accounts/login/')
+def add_business(request):
+    current_user = request.user
+    if request.method == "POST":
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.save(commit=False)
+            name.profile = current_user
+            name.save()
+        return redirect('home')
+    else:
+        form = BusinessForm()
+    
+    return render(request, 'add_business.html', {'form': form })
+
+
+@login_required(login_url='/accounts/login/')
+def neighbourhood(request):
+    current_user = request.user
+    if request.method == "POST":
+        form = NeighbourhoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            location = form.save(commit=False)
+            location.profile = current_user
+            location.save()
+        return redirect('home')
+    else:
+        form = Neighbourhood()
+    
+    return render(request, 'neighbourhood.html', {'form': form })
 
 @login_required(login_url='/accounts/login/')
 def search(request):
