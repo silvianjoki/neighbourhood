@@ -6,9 +6,15 @@
 
 {% block styles%}
     {% bootstrap_css %}
-    <link rel='stylesheet' href="{% static 'css/home.css'%}">
+    <link rel='stylesheet' href="{% static 'css/posts.css'%}">
 {% endblock%}
 
 {% block content%}
+<form  action="{%url 'add_post'%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-dark btn-sm" value="Post">
+</form>
 
 {% endblock %}
