@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid" style="height:100px">
+
+    <div class="row">
+        {% if post%}
+        
+        {% else %}
+        <h2> Arrgh we couldn't find the Post</h2>
+        </h2>
+        {% endif %}
+    </div>
+
+
+    <div class="row">
+        {% if post %}
+        {% for pos in post %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 21rem;">
+                <img src="{{post.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{pos.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Location: {{pos.author}} </h6>
+                    <p class="card-text"> {{post.description}} </p>
+                    <p class="card-text">Date: {{post.date}} </p>
+                    <p class="card-text">Category: {{image.category}} </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+title=models.CharField(max_length=255)
+image= models.ImageField(upload_to = 'images/', null=True)
+description=models.TextField()
+author= models.ForeignKey(User, on_delete=models.CASCADE)
