@@ -1,0 +1,28 @@
+@import "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@100;700&family=Rubik+Moonrocks&display=swap";
+
+
+
+.card-author{
+    object-fit: cover;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 0.6em;
+}
+
+.card {
+    margin: 3%;
+    width: 21rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+
+}.card-header {
+    padding: 0.5rem;
+}
