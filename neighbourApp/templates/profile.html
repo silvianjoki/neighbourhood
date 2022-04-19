@@ -6,24 +6,15 @@
 {% block content %}
 
 <div class="container">
+
+    <h1 style='text-align: center;font-family:Dancing-Script, cursive; font-size: xxx-large; padding-top:3%; color:blue'>Hey Youuu!! </h1>
     {% for prof in profile %}
     <div class="row justify-content-center mt-5">
-        <div class="card shadow-sm col-md-8 col-sm-12 border-bottom px-5 pt-3">
             <div class="text-center">
-                <img src="{{ prof.profile_picture.url }}" class="rounded-circle" width="100" height="100" />
-                        {% if request.user == user %}
-                        </span>
-                        {% else %}
-                        <h3 class="py-4">{{ user.username }}
-                        </h3>
-                        {% endif %}
-                    </h3>
-                </div>
-            {% if prof.name %}
-            <p>{{ prof.name }}</p>
-            {% endif %}
-            <p>{{prof.n_profile_id}} </p>
-            <p>{{prof.email}} </p>
+            <p>Name: <br> {{prof.name}}</p>
+            <p>Id:<br>{{prof.profile_id}}</p>
+            <p>Email: <br>{{prof.email}}</h4> <br>
+            <p>Neighbourhood: <br>{{prof.n_name}}</p> <br>
         </div>
     </div>
     {% endfor %}
@@ -32,4 +23,7 @@
 
 
 {% endblock %}
-
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    n_name = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+    profile_id = models.IntegerField()

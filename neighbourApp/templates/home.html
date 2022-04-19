@@ -12,6 +12,7 @@
 {% block content%}
 
 <div class="container-fluid" height='500px'>
+    <h1 style='text-align: center;font-family:Dancing-Script, cursive; font-size: xxx-large; padding-top:3%; color:aqua'>Latest Posts</h1>
     <div class='row'>
         {% for pos in post %}
         <div class="col-md-4">
@@ -31,14 +32,15 @@
 
 
 <div class="container-fluid" height='500px'>
+    <h1 style='text-align: center;font-family:Dancing-Script, cursive; font-size: xxx-large; padding-top:3%; color:aqua'>View Businesses</h1>
     <div class='row'>
         {% for bus in business %}
         <div class="col-md-4">
             <div class="card" style="width: 21rem; padding-bottom:2%">
                 <div class="card-body">
-                    <h5 class="card-title">{{bus.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"> {{bus.n_name}} </h6>
-                    <p class="card-text"> by: {{bus.email}} </p>
+                    <h5 class="card-title"> Name: {{bus.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> Location: {{bus.n_name}} </h6>
+                    <p class="card-text">Email: {{bus.email}} </p>
                 </div>
             </div>
         </div>
@@ -47,16 +49,18 @@
 </div>
 
 
+
 <div class="container-fluid" height='500px'>
+    <h1 style='text-align: center;font-family:Dancing-Script, cursive; font-size: xxx-large; padding-top:3%; color:aqua'>View Neighbourhoods</h1>
     <div class='row'>
         {% for neigh in neighbourhood %}
         <div class="col-md-4">
             <div class="card" style="width: 21rem; padding-bottom:2%">
                 <div class="card-body">
-                    <h5 class="card-title">{{neigh.n_name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"> {{neigh.location}} </h6>
-                    <p class="card-text"> by: {{neigh.occupants}} </p>
-                    <p class="card-text"> by: {{neigh.admin}} </p>
+                    <h5 class="card-title"> Name:{{neigh.n_name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> Location: {{neigh.location}} </h6>
+                    <p class="card-text"> Occupants Count: {{neigh.occupants}} </p>
+                    <p class="card-text"> Admin: {{neigh.admin}} </p>
                 </div>
             </div>
         </div>

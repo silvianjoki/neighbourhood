@@ -88,7 +88,7 @@ def neighbourhood(request):
             location.save()
         return redirect('home')
     else:
-        form = Neighbourhood()
+        form = NeighbourhoodForm()
     
     return render(request, 'neighbourhood.html', {'form': form })
 
