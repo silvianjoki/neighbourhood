@@ -18,9 +18,13 @@ def index(request):
 
 @login_required(login_url='/accounts/login/')
 def home(request):
+    current_user = request.user
+    post = Post.objects.all()
+    neighbourhood = Neighbourhood.objects.all()
+    business=Business.objects.all()
+    profile = Profile.objects.all()
     
-    
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'current_user':current_user,'business':business, 'post':post,'neighbourhood':neighbourhood, 'profile':profile})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):

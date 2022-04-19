@@ -20,7 +20,7 @@ class PostForm(forms.ModelForm):
     model = Post
     class  Meta:
         model = Post
-        exclude = ['author']
+        exclude = ['']
         
         
 class BusinessForm(forms.ModelForm):
