@@ -29,8 +29,18 @@ def home(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     profile = Profile.objects.all()
+    post = Post.objects.all()
+    current_user = request.user
     
-    return render(request, 'profile.html',{ 'profile':profile})
+    if request.method == ' POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.name = current_user
+            profile.save()
+        else:
+            form = ProfileForm()
+    return render(request, 'profile.html',{ 'profile':profile, 'post':post})
 
 
 @login_required(login_url='/accounts/login/')

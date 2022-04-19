@@ -19,13 +19,17 @@
                         {% endif %}
                     </h3>
                 </div>
-            {% if prof.bio %}
-            <p>{{ prof.bio }}</p>
+            {% if prof.name %}
+            <p>{{ prof.name }}</p>
             {% endif %}
+            <p>{{prof.n_profile_id}} </p>
+            <p>{{prof.email}} </p>
         </div>
     </div>
+    {% endfor %}
 </div>
 
-{% endfor %}
+
 
 {% endblock %}
+
