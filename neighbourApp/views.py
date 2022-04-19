@@ -20,3 +20,9 @@ def home(request):
     
     
     return render(request, 'home.html')
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    
+    
+    return render(request, 'profile.html')

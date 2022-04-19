@@ -38,7 +38,7 @@ class Admin(models.Model):
     
     
     def __str__(self):
-        return self.user.username
+        return self.name
     
     def save_admin(self):
         self.save()
@@ -55,7 +55,7 @@ class Profile(models.Model):
     profile_id = models.IntegerField()
     
     def __str__(self):
-        return self.user.username
+        return self.name
     
     def save_profile(self):
         self.save()
@@ -72,7 +72,7 @@ class Business(models.Model):
     email=models.CharField(max_length=255)
     
     def __str__(self):
-        return self.user.username
+        return self.name
     
     def create_business(self):
         self.save()
@@ -84,3 +84,20 @@ class Business(models.Model):
     @classmethod
     def update_business(cls,id, name):
         return cls.objects.filter(id=id).update(name=name)
+
+
+class Post(models.Model):
+    title=models.CharField(max_length=255)
+    image= models.ImageField(upload_to = 'images/', null=True)
+    description=models.TextField()
+    posted_by= models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.title
+    
+    def create_post(self):
+        self.save()
+    
+    @classmethod
+    def update_post(cls,id, description):
+        return cls.objects.filter(id=id).update(description=description)
