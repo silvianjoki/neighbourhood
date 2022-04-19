@@ -11,15 +11,17 @@
 
 {% block content%}
 
-<div class="container">
-    {% for pos in post %}
-    <div class="col-sm-4">
-        <div class="card" style="width: 21rem; padding-bottom:2%">
-            <img src="{{pos.image.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{pos.title}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted"> {{pos.description}} </h6>
-                <p class="card-text"> {{pos.author}} </p>
+<div class="container-fluid">
+    <div class='row'>
+        {% for pos in post %}
+        <div class="col-md-4">
+            <div class="card" style="width: 21rem; padding-bottom:2%">
+                <img src="{{pos.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{pos.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{pos.description}} </h6>
+                    <p class="card-text"> {{pos.author}} </p>
+                </div>
             </div>
         </div>
     </div>
@@ -27,4 +29,6 @@
 </div>
 
 {% endblock %}
+
+
 

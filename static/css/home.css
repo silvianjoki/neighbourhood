@@ -11,6 +11,7 @@
 }
 
 .card {
+    align-items: center;
     margin: 3%;
     width: 21rem;
     transform: translateY(-2px);
@@ -26,3 +27,4 @@
 }.card-header {
     padding: 0.5rem;
 }
+
