@@ -17,7 +17,7 @@ class ProfileTestCase(TestCase):
     def tearDown(self):
         Profile.objects.all().delete()
         User.objects.all().delete()
-        
+
 class NeighbourhoodTestCase(TestCase):
     def setUp(self):
         self.silvia = User(username = 'silvia',  email ='silvia@gmail.com', n_name='nairobi', profile_id='21882')
@@ -27,16 +27,16 @@ class NeighbourhoodTestCase(TestCase):
         self.silvia.save()
         self.profile.save_profile
         self.neighbourhood.save_neighbourhood
-        
+
     def tearDown(self):
         User.objects.all().delete()
         Profile.objects.all().delete()
         Neighbourhood.objects.all().delete()
-            
+
     def test_save_neighbourhood(self):
         neighbourhood = Neighbourhood.objects.all()
         self.assertTrue(len(neighbourhood)>0)
-        
+
     def test_delete_neighbourhood(self):
         neighbourhood1 = Neighbourhood.objects.all()
         self.assertEqual(len(neighbourhood1),1)
