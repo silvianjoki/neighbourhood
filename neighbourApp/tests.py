@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Profile, Neighbourhood, Business, Admin
+from .models import Profile, Neighbourhood, Business, Admin, Post
 
 # Create your tests here.
 class ProfileTestCase(TestCase):

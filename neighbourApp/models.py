@@ -34,7 +34,6 @@ class Neighbourhood(models.Model):
 class Admin(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     name= models.CharField(max_length=255)
-    profile_pic = models.ImageField(upload_to = 'images/', null=True)
     
     
     def __str__(self):
