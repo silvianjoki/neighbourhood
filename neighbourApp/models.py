@@ -50,7 +50,6 @@ class Admin(models.Model):
 
 class Profile(models.Model):
     name = models.CharField(max_length=255)
-    user = models.OneToOneField(User, on_delete = models.CASCADE)
     email = models.CharField(max_length=255)
     n_name = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
     profile_id = models.IntegerField()
